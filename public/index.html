@@ -2,32 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="estilo.css">
-    <title>O Samba Me Guia</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>O Samba Me Guia</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/estilo.css">
+  <link rel="icon" href="./assets/icon/logo-removebg-preview.png">
+
 </head>
 
+
 <body>
+  <!-- INÍCIO DO HEADER -->
     <header class="header">
         <div class="container">
             <a href="home.html" class="logo">
-                <img src="img/logo-removebg-preview.png" alt="logo">
+                <img src="assets/icon/logo-removebg-preview.png" alt="logo">
             </a>
             <nav class="navBar">
                 <a href="#">Home</a>
                 <a href="#">O Samba</a>
-                <a href="#">Login</a>
-                <a href="#">Cadastro</a>
+                <a href="login.html">Login</a>
+                <a href="cadastro.html">Cadastro</a>
             </nav>
         </div>
     </header>
-
+  <!-- FIM DO HEADER -->
     <div class="home-container">
 
     </div>
@@ -36,7 +41,7 @@
             <h1 class="title">O SAMBA</h1>
         </div>
         <div class="rodaSamba">
-            <img src="img/roda-de-samba.webp" alt="roda-de-samba">
+            <img src="assets/imgs/roda-de-samba.webp" alt="roda-de-samba">
             <div class="texto">
                 <p>O Samba é um patrimônio cultural de extrema importância para o Brasil,
                     que traz <b>identidade, mistura de ritmos e resistência.</b> <br><br>
@@ -54,18 +59,18 @@
     <div class="entrar">
         <div class="titulo">
             <h1> VAMOS NESSA CONHECER MAIS SOBRE ESSA ARTE?!</h1>
-            <a href="#" class="btn"> ENTRAR</a>
+            <a href="login.html" class="btn"> ENTRAR</a>
         </div>
 
     </div>
-
+  <!-- FOOTER COMEÇO -->
     <footer class="footer">
         <div class="subtitulo">
             <h2>Feito por Beatriz Sarro </h2>
-            <img src="img/pandeiro.png" alt="pandeiroLogo">
+            <img src="assets/imgs/pandeiro.png" alt="pandeiroLogo">
         </div>
-
     </footer>
+  <!-- FOOTER FIM -->
 </body>
 
 </html>
