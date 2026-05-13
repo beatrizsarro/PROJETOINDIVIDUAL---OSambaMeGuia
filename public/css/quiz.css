@@ -1,0 +1,69 @@
+:root {
+    --primary-brand-color: #ED145B;
+    --secondary-brand-color: #0762C8;
+    --success: #198754;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --new-gray: #CCCCCC;
+    --new-black: #212427;
+    --new-white: #F5F5F5; /* mais suave que o branco puro */
+    --bg: #BC7C24;
+    --letra: #ECEADA;
+    --vinho: #75080E;
+    --marrom: #6C2226;
+    --btn: #FCC40B;
+    --tamanho-header: 80px;
+    --tamanho-footer: 65px;
+}
+
+body {
+    color: var(--new-black);
+    background-color: var(--new-white);
+    background-image: url('../assets/imgs/sdd_degrade.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.flex-colunar {
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(217, 217, 217, 0.85);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+button {
+    background-color: var(--marrom);
+    color: var(--letra);
+    padding: 12px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--vinho);
+    transform: scale(1.05);
+}
+
+.text-bold {
+    font-weight: bold;
+    font-size: 22px;
+    color: var(--new-black);
+}
