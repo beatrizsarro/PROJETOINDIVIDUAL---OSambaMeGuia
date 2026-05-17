@@ -11,7 +11,10 @@ senha VARCHAR(50)
 
 CREATE TABLE quiz (
 idQuiz INT PRIMARY KEY AUTO_INCREMENT, 
-texto VARCHAR(100)
+pergunta VARCHAR(100),
+alternativaA VARCHAR(255),
+alternativaB VARCHAR(255),
+alternativaC VARCHAR(255)
 );
 
 CREATE TABLE artista (
@@ -29,14 +32,49 @@ CONSTRAINT fkArtistaInstrumento FOREIGN KEY (fkArtista) REFERENCES artista(idArt
 
 CREATE TABLE resposta (
 idResposta INT AUTO_INCREMENT, 
-fkUsuario INT UNIQUE, 
-fkQuiz INT UNIQUE, 
-fkInstrumento INT UNIQUE, 
-PRIMARY KEY (idResposta),
+fkUsuario INT, 
+fkPergunta INT, 
+fkInstrumento INT, 
+respostaEscolhida CHAR(1),
+PRIMARY KEY (idResposta, fkUsuario, fkPergunta),
 FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
-FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz),
+FOREIGN KEY (fkPergunta) REFERENCES quiz(idQuiz),
 FOREIGN KEY (fkInstrumento) REFERENCES instrumento(idInstrumento)
 );
 
+CREATE VIEW vw_listaQuiz AS 
+SELECT 
+	idQuiz, 
+	pergunta, 
+	alternativaA, 
+	alternativaB, 
+	alternativaC
+FROM quiz;
 
-SELECT * FROM usuario;
+INSERT INTO quiz
+(pergunta, alternativaA, alternativaB, alternativaC)
+VALUES
+(
+'Se você fosse ouvir samba, onde seria?',
+'Num bar com amigos.',
+'Em casa, relaxando.',
+'Num grande show.'
+),
+(
+'Se você fosse viajar, qual destino escolheria?',
+'Rio de Janeiro',
+'Bahia',
+'São Paulo'
+),
+(
+'Se você fosse desfilar, qual papel escolheria?',
+'Brilhar na frente.',
+'Dar ritmo na bateria.',
+'Colorir a avenida'
+),
+(
+'Se você fosse tocar, qual papel gostaria de ter?',
+'Marcar o ritmo.',
+'Criar a harmonia.',
+'Dar destaque com sons agudo'
+);
