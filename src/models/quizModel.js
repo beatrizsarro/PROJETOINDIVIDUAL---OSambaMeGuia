@@ -11,15 +11,20 @@ function listarPerguntas() {
     console.log("Executando a instrução SQL: \n Listando Perguntas...." + instrucaoSql);
 }
 
-function salvarResposta(fkUsuario, fkPergunta, respostaEscolhida) {
+function salvarResposta(fkUsuario, fkPergunta, respostaEscolhida, fkInstrumento = null) {
+    let instrucao;
 
-    const instrucao = `
-        INSERT INTO resposta
-        (fkUsuario, fkPergunta, respostaEscolhida)
-        VALUES
-        (${fkUsuario}, ${fkPergunta}, '${respostaEscolhida}');
-    `;
-
+    if (fkInstrumento == null) {
+        instrucao = `
+            INSERT INTO resposta (fkUsuario, fkPergunta, respostaEscolhida, fkInstrumento)
+            VALUES (${fkUsuario}, ${fkPergunta}, '${respostaEscolhida}', NULL);
+        `;
+    } else {
+        instrucao = `
+            INSERT INTO resposta (fkUsuario, fkPergunta, respostaEscolhida, fkInstrumento)
+            VALUES (${fkUsuario}, ${fkPergunta}, '${respostaEscolhida}', ${fkInstrumento});
+        `;
+    }
     return database.executar(instrucao);
 }
 
