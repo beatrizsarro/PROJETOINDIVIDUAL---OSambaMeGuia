@@ -1,7 +1,7 @@
 CREATE DATABASE oSamba;
 
 USE oSamba;
-
+-- Tabelas 
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50),
@@ -17,17 +17,10 @@ alternativaB VARCHAR(255),
 alternativaC VARCHAR(255)
 );
 
-CREATE TABLE artista (
-idArtista INT PRIMARY KEY AUTO_INCREMENT, 
-nome VARCHAR(45)
-);
-
 CREATE TABLE instrumento (
 idInstrumento INT PRIMARY KEY AUTO_INCREMENT, 
 nome VARCHAR(45),
-descricao VARCHAR(200),
-fkArtista INT, 
-CONSTRAINT fkArtistaInstrumento FOREIGN KEY (fkArtista) REFERENCES artista(idArtista)
+descricao VARCHAR(300)
 );
 
 CREATE TABLE resposta (
@@ -42,15 +35,7 @@ FOREIGN KEY (fkPergunta) REFERENCES quiz(idQuiz),
 FOREIGN KEY (fkInstrumento) REFERENCES instrumento(idInstrumento)
 );
 
-CREATE VIEW vw_listaQuiz AS 
-SELECT 
-	idQuiz, 
-	pergunta, 
-	alternativaA, 
-	alternativaB, 
-	alternativaC
-FROM quiz;
-
+-- Insert
 INSERT INTO quiz
 (pergunta, alternativaA, alternativaB, alternativaC)
 VALUES
@@ -78,3 +63,32 @@ VALUES
 'Criar a harmonia.',
 'Dar destaque com sons agudo'
 );
+SELECT * FROM instrumento;
+INSERT INTO instrumento (nome, descricao) VALUES 
+	('Pandeiro', 'Um dos instrumentos de percussão mais conhecidos do samba. Possui pele esticada e platinelas metálicas que funcionam como um "chocalho". 
+    No samba, é o “coringa” que mistura batida e chocalho num só toque.'),
+    ('Tamborim', 'Pequeno tambor de mão, com som agudo. 
+    No samba, é tocado com uma baqueta fina (ou baquetas múltiplas) e movimentos que marcam a cadência, 
+    criando frases rítmicas que dão brilho e energia à batucada.'),
+    ('Cavaquinho', 
+    'O Cavaco é um instrumento pequeno, como um violão em miniatura. Possui quatro cordas. 
+    No samba, é responsável por sustentar a harmonia e dar aquele balanço
+    característico com batidas rápidas e alegres.');
+
+-- VIEWS
+CREATE VIEW vw_listaQuiz AS 
+SELECT 
+	idQuiz, 
+	pergunta, 
+	alternativaA, 
+	alternativaB, 
+	alternativaC
+FROM quiz;
+
+CREATE VIEW vw_usuarioQuiz AS
+SELECT u.nome AS Nome_usuario,
+	pergunta AS Pergunta, 
+    respostaEscolhida AS Resposta,
+    i.nome as Nome_instrumento,
+    i.descricao AS Descricao_instrumento 
+ FROM usuario u JOIN resposta r ON u.id = r.fkUsuario JOIN instrumento i ON i.idInstrumento = r.fkInstrumento JOIN quiz ON quiz.idQuiz = r.fkPergunta;
