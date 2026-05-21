@@ -2,23 +2,25 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>O Samba Me Guia</title>
+    <title>O Samba Me Guia</title>
 
-  <script src="./js/sessao.js"></script>
+    <script src="./js/sessao.js"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/estilo.css">
-  <link rel="icon" href="./assets/icon/logo-removebg-preview.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon" href="./assets/icon/logo-removebg-preview.png">
 
 </head>
 
 
 <body>
-  <!-- INÍCIO DO HEADER -->
+    <!-- INÍCIO DO HEADER -->
     <header class="header">
         <div class="container">
             <a href="home.html" class="logo">
@@ -32,7 +34,7 @@
             </nav>
         </div>
     </header>
-  <!-- FIM DO HEADER -->
+    <!-- FIM DO HEADER -->
     <div class="home-container">
 
     </div>
@@ -55,22 +57,121 @@
             </div>
         </div>
     </div>
+    <div class="minhaHistoria">
+        <div class="titulo">
+            <h1 class="title">MINHA HISTORIA</h1>
+        </div>
+        <div class="texto">
+            <p>
+                Desde que me entendo por gente, o samba sempre esteve presente na minha vida. <b>Cresci</b> em meio às
+                <b>rodas de samba da minha família</b>, onde cada encontro era marcado por música, alegria e união. Foi
+                nesse ambiente que comecei a criar minhas primeiras memórias musicais e a sentir o poder que o samba tem
+                de aproximar as pessoas.
+            </p> <br>
+
+            <p>Aos poucos, fui pegando gosto e me aventurando nos instrumentos. Aprendi de forma <b>autodidata,</b>
+                observando meus familiares tocarem e repetindo cada gesto que via. Instrumentos como o
+                <b>cavaquinho</b>, o <b>pandeiro</b>, <b>repique de mão</b>, <b>tamborim</b> e outros instrumentos se
+                tornaram <b>parte de mim</b>, tocar se tornou minha <b>brincadeira favorita.</b>
+                Com 14 anos, dei meu primeiro passo profissional: comecei a trabalhar com música. Desde então ele me
+                ensinou disciplina, criatividade e, acima de tudo, a importância de manter viva uma tradição que carrega
+                tanta história e emoção.
+            </p>
+        </div>
+        <div class="imagem">
+            <img src="assets/imgs/criança.jpeg" alt="crianca">
+            <img src="assets/imgs/congas_clareou.jpeg" alt="congas">
+            <img src="assets/imgs/casaAberta.jpeg" alt="casaAberta">
+        </div>
+    </div>
+    <div class="titulo">
+        <h1 class="title">O CARNAVAL</h1>
+    </div>
+    <div class="oCarnaval">
+
+        <div class="texto">
+            <P> O carnaval é a <b>maior festa popular do Brasil</b> e ele tem tudo a ver com o samba, porque é o ritmo
+                que dá
+                vida aos desfiles e às baterias das escolas. Mais do que festa, o carnaval passa de geração em geração e
+                mantém viva a cultura brasileira.</P>
+            <P> Eu entrei nesse mundo aos <b>12 anos</b>, quando comecei na <b>bateria mirim da Camisa Verde e
+                    Branco</b>. Foi ali que senti de verdade a energia do carnaval. Cada ensaio era pura emoção, e cada
+                batida mostrava que o samba
+                não é só música é união, história e paixão.</P>
+        </div>
+        <img src="assets/imgs/bloco_scooby.jpeg" alt="bloco_scooby">
+    </div>
+    <div class="tipoSamba">
+        <div class="titulo">
+            <h1 class="title">TIPOS DE SAMBA</h1>
+        </div>
+        <img src="assets/imgs/SambaDeRoda.png" alt="SambaDeRoda">
+        <img src="assets/imgs/SambaEnredo.png" alt="SambaEnredo">
+        <img src="assets/imgs/SambaCancao.png" alt="SambaCancao"> <br>
+        <img src="assets/imgs/SambaGafieira.png" alt="SambaGafieira">
+        <img src="assets/imgs/PartidoAlto.png" alt="PartidoAlto">
+        <img src="assets/imgs/SambaRock (1).png" alt="SambaRock">
+    </div>
 
     <div class="entrar">
         <div class="titulo">
-            <h1> VAMOS NESSA CONHECER MAIS SOBRE ESSA ARTE?!</h1>
-            <a href="login.html" class="btn"> ENTRAR</a>
+            <h1>SORTEIE UMA FRASE PARA ALEGRAR SEU DIA!!</h1>
+            <a class="btn" onclick="sortear()"> SORTEAR</a>
         </div>
+        <div id="div_msg"></div>
 
     </div>
-  <!-- FOOTER COMEÇO -->
+    <!-- FOOTER COMEÇO -->
     <footer class="footer">
         <div class="subtitulo">
             <h2>Feito por Beatriz Sarro </h2>
             <img src="assets/imgs/pandeiro.png" alt="pandeiroLogo">
         </div>
     </footer>
-  <!-- FOOTER FIM -->
+    <!-- FOOTER FIM -->
 </body>
 
 </html>
+
+<script>
+    var musicas = [
+        {
+            frase: "'Às vezes a felicidade demora chegar, aí é que a gente não pode deixar de sonhar.'",
+            nome: "- Tá Escrito - Grupo Revelação."
+        },
+        {
+            frase: "'Alegria é a melhor coisa que existe, assim como a luz no coração.'",
+            nome: "- Samba Da Benção - Vinicius de Moraes"
+        },
+        {
+            frase: "'Levanta, sacode a poeira e dá a volta por cima.'",
+            nome: "- Volta Por Cima - Beth Carvalho"
+        },
+        {
+            frase: "'Deixe de lado esse baixo astral, erga a cabeça, enfrente o mal, que agindo assim será vital para o se coração.'",
+            nome: "- Conselho - Almir Guineto"
+        },
+         {
+            frase: "'Canta forte, canta alto, Que a vida vai melhorar.'",
+            nome: "- Canta Canta, Minha Gente - Martinho Da Vila"
+        },
+        {
+            frase: "'Não esquecer: Ninguém é o centro do Universo'",
+            nome: "- Brincar De Viver - Maria Bethânia"
+        },
+         
+
+
+    ];
+
+    function sortear() {
+        let indice = Math.floor(Math.random() * musicas.length); 
+        let fraseSorteada = musicas[indice];
+
+        div_msg.innerHTML = `
+        <br>${fraseSorteada.frase}<br>
+        <strong>${fraseSorteada.nome}</strong>
+    `;
+    }
+
+</script>

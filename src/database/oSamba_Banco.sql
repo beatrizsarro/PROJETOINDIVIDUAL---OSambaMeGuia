@@ -1,6 +1,8 @@
 CREATE DATABASE oSamba;
 
 USE oSamba;
+
+SELECT * FROM usuario;
 -- Tabelas 
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -35,6 +37,14 @@ FOREIGN KEY (fkPergunta) REFERENCES quiz(idQuiz),
 FOREIGN KEY (fkInstrumento) REFERENCES instrumento(idInstrumento)
 );
 
+CREATE TABLE aviso (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	titulo VARCHAR(100),
+	descricao VARCHAR(150),
+	fk_usuario INT,
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+);
+
 -- Insert
 INSERT INTO quiz
 (pergunta, alternativaA, alternativaB, alternativaC)
@@ -63,7 +73,7 @@ VALUES
 'Criar a harmonia.',
 'Dar destaque com sons agudo'
 );
-SELECT * FROM instrumento;
+SELECT * FROM usuario;
 INSERT INTO instrumento (nome, descricao) VALUES 
 	('Pandeiro', 'Um dos instrumentos de percussão mais conhecidos do samba. Possui pele esticada e platinelas metálicas que funcionam como um "chocalho". 
     No samba, é o “coringa” que mistura batida e chocalho num só toque.'),
@@ -91,4 +101,15 @@ SELECT u.nome AS Nome_usuario,
     respostaEscolhida AS Resposta,
     i.nome as Nome_instrumento,
     i.descricao AS Descricao_instrumento 
- FROM usuario u JOIN resposta r ON u.id = r.fkUsuario JOIN instrumento i ON i.idInstrumento = r.fkInstrumento JOIN quiz ON quiz.idQuiz = r.fkPergunta;
+ FROM usuario u JOIN resposta r ON u.id = r.fkUsuario 
+ JOIN instrumento i ON i.idInstrumento = r.fkInstrumento 
+ JOIN quiz ON quiz.idQuiz = r.fkPergunta;
+ 
+ALTER VIEW vw_usuarioInstrumento AS
+SELECT COUNT(i.nome) AS qtd_Usuario, i.nome AS Nome_Instrumento
+FROM resposta r
+JOIN usuario u ON r.fkUsuario = u.id
+JOIN instrumento i ON r.fkInstrumento = i.idInstrumento
+group by i.nome;
+
+SELECT * FROM vw_usuarioInstrumento;
