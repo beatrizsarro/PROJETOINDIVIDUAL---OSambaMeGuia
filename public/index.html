@@ -28,7 +28,7 @@
             </a>
             <nav class="navBar">
                 <a href="#">Home</a>
-                <a href="#">O Samba</a>
+                <a href="#historia">Minha História</a>
                 <a href="login.html">Login</a>
                 <a href="cadastro.html">Cadastro</a>
             </nav>
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div class="minhaHistoria">
+    <div class="minhaHistoria" id="historia">
         <div class="titulo">
             <h1 class="title">MINHA HISTORIA</h1>
         </div>
@@ -101,34 +101,42 @@
         </div>
         <img src="assets/imgs/bloco_scooby.jpeg" alt="bloco_scooby">
     </div>
-    <div class="tipoSamba">
-        <div class="titulo">
-            <h1 class="title">TIPOS DE SAMBA</h1>
-        </div>
-        <img src="assets/imgs/SambaDeRoda.png" alt="SambaDeRoda">
-        <img src="assets/imgs/SambaEnredo.png" alt="SambaEnredo">
-        <img src="assets/imgs/SambaCancao.png" alt="SambaCancao"> <br>
-        <img src="assets/imgs/SambaGafieira.png" alt="SambaGafieira">
-        <img src="assets/imgs/PartidoAlto.png" alt="PartidoAlto">
-        <img src="assets/imgs/SambaRock (1).png" alt="SambaRock">
-    </div>
 
     <div class="entrar">
         <div class="titulo">
             <h1>SORTEIE UMA FRASE PARA ALEGRAR SEU DIA!!</h1>
             <a class="btn" onclick="sortear()"> SORTEAR</a>
         </div>
-        <div id="div_msg"></div>
-
     </div>
-    <!-- FOOTER COMEÇO -->
-    <footer class="footer">
-        <div class="subtitulo">
-            <h2>Feito por Beatriz Sarro </h2>
-            <img src="assets/imgs/pandeiro.png" alt="pandeiroLogo">
+    <div id="div_msg"></div>
+    <<BR><BR><BR><br><br><br><br><br>
+        <div class="tipoSamba">
+            <div class="titulo">
+                <h1 class="title">TIPOS DE SAMBA</h1>
+            </div>
+            <img src="assets/imgs/SambaDeRoda.png" alt="SambaDeRoda">
+            <img src="assets/imgs/SambaEnredo.png" alt="SambaEnredo">
+            <img src="assets/imgs/SambaCancao.png" alt="SambaCancao"> <br>
+            <img src="assets/imgs/SambaGafieira.png" alt="SambaGafieira">
+            <img src="assets/imgs/PartidoAlto.png" alt="PartidoAlto">
+            <img src="assets/imgs/SambaRock (1).png" alt="SambaRock">
         </div>
-    </footer>
-    <!-- FOOTER FIM -->
+
+        <div class="entrar">
+            <div class="titulo">
+                <h2>DESEJA SABER UM POUCO MAIS SOBRE TRÊS INSTRUMETNOS DO SAMBA?!</h2><h3>CLIQUE EM ENTRAR:</h3>
+                <a class="btn" href="cadastro.html"> ENTRAR</a>
+            </div>
+        </div>
+
+        <!-- FOOTER COMEÇO -->
+        <footer class="footer">
+            <div class="subtitulo">
+                <h2>Feito por Beatriz Sarro </h2>
+                <img src="assets/imgs/pandeiro.png" alt="pandeiroLogo">
+            </div>
+        </footer>
+        <!-- FOOTER FIM -->
 </body>
 
 </html>
@@ -148,10 +156,10 @@
             nome: "- Volta Por Cima - Beth Carvalho"
         },
         {
-            frase: "'Deixe de lado esse baixo astral, erga a cabeça, enfrente o mal, que agindo assim será vital para o se coração.'",
+            frase: "'Deixe de lado esse baixo astral, erga a cabeça, enfrente o mal, que agindo assim será vital para o seu coração.'",
             nome: "- Conselho - Almir Guineto"
         },
-         {
+        {
             frase: "'Canta forte, canta alto, Que a vida vai melhorar.'",
             nome: "- Canta Canta, Minha Gente - Martinho Da Vila"
         },
@@ -159,13 +167,11 @@
             frase: "'Não esquecer: Ninguém é o centro do Universo'",
             nome: "- Brincar De Viver - Maria Bethânia"
         },
-         
-
 
     ];
 
     function sortear() {
-        let indice = Math.floor(Math.random() * musicas.length); 
+        let indice = Math.floor(Math.random() * musicas.length);
         let fraseSorteada = musicas[indice];
 
         div_msg.innerHTML = `

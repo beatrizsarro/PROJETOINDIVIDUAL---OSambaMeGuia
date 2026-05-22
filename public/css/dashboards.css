@@ -11,16 +11,16 @@ body {
   flex-direction: column;
   background-color: #bae8ff;
   color: #0069d2;
-   --bg: #BC7C24;
-    --letra: #ECEADA;
-    --vinho: #75080E;
-    --marrom: #6C2226;
-    --btn: #FCC40B;
-    --tamanho-header: 80px;
-    --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-    --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-    --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-    --tamanho-footer: 65px;
+  --bg: #BC7C24;
+  --letra: #ECEADA;
+  --vinho: #75080E;
+  --marrom: #6C2226;
+  --btn: #FCC40B;
+  --tamanho-header: 80px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-footer: 65px;
 }
 
 .label-captura {
@@ -60,7 +60,7 @@ body {
 .dash-right .avisos .div-form textarea {
   width: 95%;
   border: 3px solid var(--vinho);
-  background-color: white;
+  background-color: var(--letra);
   border-radius: 5px;
 }
 
@@ -74,6 +74,8 @@ body {
   padding: 10px 15px;
   color: white;
   background-color: var(--btn);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
   width: 120px;
 }
 
@@ -97,7 +99,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 3px solid #e6005a;
+  border-bottom: 3px solid var(--vinho);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
   padding: 20px;
 }
 
@@ -110,8 +114,9 @@ body {
 }
 
 .div-results .feed-container {
-  background-color: #ffb651;
+  background-color: var(--bg);
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 80px;
 }
 
@@ -150,7 +155,7 @@ body {
 }
 
 .area-parametros-alerta .titulo-legenda {
-  color: white;
+  color: var(--letra);
   font-weight: 600;
   width: fit-content;
   margin: 10px 20px;
@@ -439,4 +444,33 @@ canvas {
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
+}
+
+.kpi-card {
+    background: var(--letra);
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.kpi-card h3 {
+    color:var(--vinho);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    font-family: 'Freckle Face';
+
+}
+
+.kpi-card p {
+    font-size: 1.1em;
+    color: #000000;
+}
+
+.kpi-card strong {
+    color: var(--bg);
+    font-size: 1.3em;
 }

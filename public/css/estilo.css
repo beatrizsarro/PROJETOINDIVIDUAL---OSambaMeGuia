@@ -129,6 +129,19 @@ body {
     margin: 60px;
 }
 
+.imagem {
+    display: flex;
+    justify-content: center; /* centraliza as imagens */
+    align-items: center;
+}
+
+.imagem img {
+    width: 40%; /* cada imagem ocupa 40% da largura */
+    margin: 20px;
+    border-radius: 20px;        
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
 .oCarnaval {
     display: flex;             
     align-items: center;        
@@ -167,6 +180,7 @@ body {
 }
 
 .entrar .titulo {
+    margin-top: 120px;
     width: 600px;
     color: var(--letra);
     font-family: 'Freckle Face';
@@ -387,5 +401,7 @@ body {
   width: 50px;
 }
 
-
-
+.titulo .Icon {
+    margin: 30px;
+    height: 10vh;
+}

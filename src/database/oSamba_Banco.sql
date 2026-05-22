@@ -104,11 +104,4 @@ SELECT u.nome AS Nome_usuario,
  JOIN instrumento i ON i.idInstrumento = r.fkInstrumento 
  JOIN quiz ON quiz.idQuiz = r.fkPergunta;
  
-CREATE VIEW vw_usuarioInstrumento AS
-SELECT COUNT(i.nome) AS qtd_Usuario, i.nome AS Nome_Instrumento
-FROM resposta r
-JOIN usuario u ON r.fkUsuario = u.id
-JOIN instrumento i ON r.fkInstrumento = i.idInstrumento
-group by i.nome;
-
-SELECT * FROM vw_usuarioInstrumento;
+SELECT * FROM vw_usuarioQuiz;
