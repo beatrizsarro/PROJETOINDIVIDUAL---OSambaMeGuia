@@ -70,7 +70,7 @@ VALUES
 'Se você fosse tocar, qual papel gostaria de ter?',
 'Marcar o ritmo.',
 'Criar a harmonia.',
-'Dar destaque com sons agudo'
+'Dar destaque no ritmo.'
 );
 
 INSERT INTO instrumento (nome, descricao) VALUES 
@@ -104,4 +104,14 @@ SELECT u.nome AS Nome_usuario,
  JOIN instrumento i ON i.idInstrumento = r.fkInstrumento 
  JOIN quiz ON quiz.idQuiz = r.fkPergunta;
  
-SELECT * FROM vw_usuarioQuiz;
+ SELECT * FROM vw_usuarioQuiz;
+ 
+ CREATE VIEW vw_usuarioInstrumento AS
+    SELECT 
+        i.nome AS Nome_Instrumento,
+        COUNT(r.fkInstrumento) AS qtd_Usuario
+	FROM resposta r
+        JOIN instrumento i ON r.fkInstrumento = i.idInstrumento
+    GROUP BY i.nome;
+    
+SELECT * FROM vw_usuarioInstrumento;
