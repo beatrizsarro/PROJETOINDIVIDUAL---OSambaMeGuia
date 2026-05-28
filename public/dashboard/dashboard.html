@@ -19,11 +19,8 @@
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload=" obterDadosGrafico()">
@@ -69,8 +66,11 @@
             <div class="btns-dash" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
-
-            <div id="kpiInstrumento" class="kpi-card"></div>
+            <div class="kpi-container">
+                <div id="kpiInstrumento" class="kpi-card"></div>
+                <div id="kpiQuantidade" class="kpi-card"></div>
+                <div id="kpiPercentual" class="kpi-card"></div>
+            </div>
 
             <div id="barra" class="grafico">
                 <canvas id="bar"> </canvas>
@@ -120,7 +120,7 @@
 
     function plotarGraficoBarra(dados) {
         var ctx = document.getElementById('bar').getContext('2d');
-        
+
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -190,21 +190,33 @@
             });
     }
 
- function exibirKPI(dados) {
-    var instrumentoUsuario = dados[0].Nome_InstrumentoUsuario; 
-    var qtdInstrumentoUsuario = 0;
-
-    for (var i = 0; i < dados.length; i++) {
-        if (dados[i].Nome_Instrumento == instrumentoUsuario) {
-            qtdInstrumentoUsuario = dados[i].qtd_Usuario;
-            break;
+    function exibirKPI(dados) {
+        var instrumentoUsuario = dados[0].Nome_InstrumentoUsuario;
+        var qtdInstrumentoUsuario = 0;
+        var totalInstrumentos = 0;
+        // somar todos os instrumentos
+        for (var i = 0; i < dados.length; i++) {
+            totalInstrumentos += dados[i].qtd_Usuario;
+            if (dados[i].Nome_Instrumento == instrumentoUsuario) {
+                qtdInstrumentoUsuario = dados[i].qtd_Usuario;
+            }
         }
-    }
-
-    var kpiDiv = document.getElementById("kpiInstrumento");
-    kpiDiv.innerHTML = `
-        <h3>Seu instrumento: ${instrumentoUsuario}</h3>
-        <p>Quantidade de pessoas que tiveram o mesmo instrumento: <br><strong>${qtdInstrumentoUsuario}</strong></p>
+        // calcular percentual
+        var percentual = ((qtdInstrumentoUsuario / totalInstrumentos) * 100).toFixed(2);
+        // kpi 1
+        var kpiInstrumentoDiv = document.getElementById("kpiInstrumento");
+        kpiInstrumentoDiv.innerHTML = `<h1>${instrumentoUsuario}</h1>
+        <p>Seu instrumento:</p> 
     `;
-}
+        // kpi 2 
+        var kpiQuantidadeDiv = document.getElementById("kpiQuantidade");
+        kpiQuantidadeDiv.innerHTML = `
+        <p><strong>${qtdInstrumentoUsuario}</strong>  <br> Quantidade de pessoas que tiveram o mesmo instrumento: </p>
+    `;
+        // kpi 3 
+        var kpiPercentualDiv = document.getElementById("kpiPercentual");
+        kpiPercentualDiv.innerHTML = `
+        <p> <strong>${percentual}%</strong> <br>Percentual em relação ao total:</p>
+    `;
+    }
 </script>

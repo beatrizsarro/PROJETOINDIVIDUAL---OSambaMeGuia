@@ -446,6 +446,13 @@ canvas {
   cursor: pointer;
 }
 
+.kpi-container {
+    display: flex;            
+    justify-content: space-around; 
+    align-items: center;    
+    margin-top: 20px;
+}
+
 .kpi-card {
     background: var(--letra);
     border: 2px solid #ccc;
@@ -457,7 +464,7 @@ canvas {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.kpi-card h3 {
+.kpi-card h1 {
     color:var(--vinho);
     font-size: 1.4em;
     margin-bottom: 10px;
@@ -471,6 +478,6 @@ canvas {
 }
 
 .kpi-card strong {
-    color: var(--bg);
+    color: var(--vinho);
     font-size: 1.3em;
 }
